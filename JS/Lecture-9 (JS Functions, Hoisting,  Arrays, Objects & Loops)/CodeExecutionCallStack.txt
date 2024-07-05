@@ -1,0 +1,36 @@
+// in call stack first
+// --> the global execution context gets created then inside GEC, memory creation phase and code execution phase gets created
+// --> first the memory creation phase (in this phase all the variables(we declare variable but they remain undefined) and functions are also declared but we did not allocate anything this phase is only for creating/declaring, allocation/initialization takes place in CEP) then
+// --> code execution phase (in this phase code gets executed line by line) then
+// --> for functions local execution context is created with there own memory creation phase and code execution phase and after the function get executed call stack removes the local execution context and continues with the code execution phase of the global execution context
+// --> after the CEP of GEC is over that means we traversed the code line by line from starting to the end, now the call stack will remove the gec
+
+/*
+//Detailed Summary using Chatgpt
+//How the JavaScript code is executed in the call stack.
+1. **Global Execution Context (GEC) Creation:**
+--> The global execution context is created when the JavaScript engine starts executing code.
+--> This phase involves setting up the global object, creating the 'this' keyword, and creating the outer lexical environment.
+
+2. **Memory Creation Phase in GEC:**
+--> During this phase, memory space is allocated for variables and functions declared in the global scope.
+--> Variables are initialized with a default value of `undefined`, and functions are hoisted (if function declarations are used).
+
+3. **Code Execution Phase in GEC:**
+--> In this phase, the JavaScript engine executes the code line by line from top to bottom.
+-->Assignments, function calls, and other operations are performed according to the code's logic.
+
+4. **Function Execution:**
+--> When a function is called, a new execution context (EC) is created for that function.
+-->This involves creating a local memory space for variables and functions declared within the function's scope.
+-->The function's code is then executed within this local execution context.
+
+5. **Local Execution Context (LEC) Removal:**
+-->After the function finishes executing, its local execution context is removed from the call stack.
+-->The JavaScript engine returns to the previous execution context (either the global execution context or another function's execution context if there's a function call within another function).
+
+6. **Global Execution Context Removal:**
+--> Once the code in the global execution context has been fully executed, the global execution context is removed from the call stack.
+-->This signifies the end of the JavaScript program's execution.
+// Understanding this sequence of steps is crucial for grasping how JavaScript code behaves during execution and how the call stack manages the flow of execution. Great job on outlining the process!
+*/
